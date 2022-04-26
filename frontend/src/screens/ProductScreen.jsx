@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
-import Rating from '../components/Rating'
+
 import Message from '../components/Message'
 
 import { listProductDetails } from '../actions/productActions'
@@ -43,10 +43,8 @@ const ProductScreen = ({ history, match }) => {
                 <ListGroup.Item>
                   <h3>{product.name}</h3>
                 </ListGroup.Item>
-                <ListGroup.Item>
-                  <Rating value={product.rating} text={`${product.numReviews} reviews`} />
-                </ListGroup.Item>
-                <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
+               
+                <ListGroup.Item>Price: {product.price}</ListGroup.Item>
                 <ListGroup.Item>Description: {product.description}</ListGroup.Item>
               </ListGroup>
             </Col>
@@ -57,7 +55,7 @@ const ProductScreen = ({ history, match }) => {
                     <Row>
                       <Col>Price:</Col>
                       <Col>
-                        <strong>${product.price}</strong>
+                        <strong>{product.price}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -95,7 +93,7 @@ const ProductScreen = ({ history, match }) => {
               </Card>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
             <Col md={6}>
               <h2>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
@@ -104,13 +102,13 @@ const ProductScreen = ({ history, match }) => {
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} />
-                    <p>{review.createdAt.substring(0, 10)}</p>
+                     <p>{review.createdAt.substring(0, 10)}</p>
                     <p>{review.comment}</p>
                   </ListGroup.Item>
                 ))}
               </ListGroup>
             </Col>
-          </Row>
+          </Row> */}
         </>
       )}
     </>
